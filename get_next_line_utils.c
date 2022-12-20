@@ -48,8 +48,8 @@ char	*ft_strjoin(char *sbase, char *buff)
 
 	if (!sbase)
 	{
-		sbase = (char *)malloc(1 * sizeof(char));
-		sbase[0] = '\0';
+		ft_calloc();
+		ft_bzero();
 	}
 	if (!sbase || !buff)
 		return (NULL);
@@ -112,10 +112,7 @@ char	*ft_newsbase(char *sbase)
 	}
 	str = malloc(sizeof(char) * (ft_strlen(sbase) - i + 1));
 	if (!str)
-	{
-		free(sbase);
 		return (NULL);
-	}
 	i++;
 	x = 0;
 	while (sbase[i])
