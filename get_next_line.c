@@ -36,7 +36,10 @@ void	*ft_calloc(size_t count, size_t size)
 		return (0);
 	str = malloc(count * size);
 	if (str == NULL)
+	{
+		free(str);
 		return (NULL);
+	}
 	ft_bzero(str, count * size);
 	return (str);
 }
