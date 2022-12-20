@@ -48,8 +48,8 @@ char	*ft_strjoin(char *sbase, char *buff)
 
 	if (!sbase)
 	{
-		ft_calloc();
-		ft_bzero();
+		ft_calloc(sbase, 1);
+		ft_bzero(1, 1);
 	}
 	if (!sbase || !buff)
 		return (NULL);
