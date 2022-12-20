@@ -28,5 +28,7 @@ char	*ft_strchr(char *s, int c);
 char	*ft_strjoin(char *s1, char *buff);
 char	*ft_getline(char *sbase);
 char	*ft_newsbase(char *sbase);
+void  *ft_calloc(size_t count, size_t size);
+void  ft_bzero(void *s, size_t n);
 
 #endif
