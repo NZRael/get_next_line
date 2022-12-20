@@ -12,6 +12,35 @@
 
 #include "get_next_line.h"
 
+void	ft_bzero(void *s, size_t n)
+{
+	char	*ptr;
+	size_t	i;
+
+	i = 0;
+	ptr = s;
+	while (n != 0)
+	{
+		ptr[i] = '\0';
+		i++;
+		n--;
+	}
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	char	*str;
+
+	if ((count >= 922337200000000000)
+		|| (size >= 922337200000000000))
+		return (0);
+	str = malloc(count * size);
+	if (str == NULL)
+		return (NULL);
+	ft_bzero(str, count * size);
+	return (str);
+}
+
 static char	*ft_read(int fd, char *sbase)
 {
 	char	*buff;
