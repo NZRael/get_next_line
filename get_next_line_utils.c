@@ -47,10 +47,7 @@ char	*ft_strjoin(char *sbase, char *buff)
 	char		*str;
 
 	if (!sbase)
-	{
-		ft_calloc(sbase, 1);
-		ft_bzero(1, 1);
-	}
+		sbase = ft_calloc(1, 1);
 	if (!sbase || !buff)
 		return (NULL);
 	str = malloc(sizeof(char) * (ft_strlen(sbase) + ft_strlen(buff) + 1));

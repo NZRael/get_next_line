@@ -12,16 +12,14 @@
 
 #include "get_next_line.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(char *s, size_t n)
 {
-	char	*ptr;
 	size_t	i;
 
 	i = 0;
-	ptr = s;
 	while (n != 0)
 	{
-		ptr[i] = '\0';
+		s[i] = '\0';
 		i++;
 		n--;
 	}
