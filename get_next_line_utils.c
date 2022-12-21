@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sboetti <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sboetti <sboetti@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:16:40 by sboetti           #+#    #+#             */
-/*   Updated: 2022/12/20 15:13:15 by sboetti          ###   ########.fr       */
+/*   Updated: 2022/12/21 17:21:05 by sboetti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ char	*ft_strjoin(char *sbase, char *buff)
 		sbase = ft_calloc(1, 1);
 	if (!sbase || !buff)
 		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(sbase) + ft_strlen(buff) + 1));
-	if (str == NULL)
+	str = malloc(sizeof(char) * ((ft_strlen(sbase) + ft_strlen(buff)) + 1));
+	if (!str)
 		return (NULL);
 	i = -1;
 	j = 0;
@@ -109,7 +109,10 @@ char	*ft_newsbase(char *sbase)
 	}
 	str = malloc(sizeof(char) * (ft_strlen(sbase) - i + 1));
 	if (!str)
+	{
+		free(str);
 		return (NULL);
+	}
 	i++;
 	x = 0;
 	while (sbase[i])

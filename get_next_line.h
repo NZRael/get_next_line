@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sboetti <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 15:47:31 by sboetti           #+#    #+#             */
-/*   Updated: 2022/12/20 14:57:48 by sboetti          ###   ########.fr       */
+/*   Updated: 2022/12/21 17:03:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strchr(char *s, int c);
 char	*ft_strjoin(char *s1, char *buff);
 char	*ft_getline(char *sbase);
 char	*ft_newsbase(char *sbase);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(char *s, size_t n);
+char	*ft_calloc(size_t count, size_t size);
+void	ft_bzero(char *sbase, size_t n);
 
 #endif

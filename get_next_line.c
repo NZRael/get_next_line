@@ -3,37 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sboetti <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sboetti <sboetti@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 15:48:56 by sboetti           #+#    #+#             */
-/*   Updated: 2022/12/20 14:57:01 by sboetti          ###   ########.fr       */
+/*   Updated: 2022/12/21 17:21:21 by sboetti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_bzero(char *s, size_t n)
+void	ft_bzero(char *sbase, size_t n)
 {
 	size_t	i;
 
 	i = 0;
 	while (n != 0)
 	{
-		s[i] = '\0';
+		sbase[i] = '\0';
 		i++;
 		n--;
 	}
 }
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_calloc(size_t count, size_t size)
 {
 	char	*str;
 
 	if ((count >= 922337200000000000)
 		|| (size >= 922337200000000000))
 		return (0);
-	str = malloc(count * size);
-	if (str == NULL)
+	str = malloc(sizeof(char) * (count * size));
+	if (!str)
 	{
 		free(str);
 		return (NULL);
