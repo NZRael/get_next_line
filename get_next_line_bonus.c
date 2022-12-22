@@ -6,11 +6,11 @@
 /*   By: sboetti <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 15:48:56 by sboetti           #+#    #+#             */
-/*   Updated: 2022/12/22 10:37:40 by sboetti          ###   ########.fr       */
+/*   Updated: 2022/12/22 10:56:34 by sboetti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	ft_bzero(char *sbase, size_t n)
 {
@@ -68,20 +68,20 @@ static char	*ft_read(int fd, char *sbase)
 
 char	*get_next_line(int fd)
 {
-	static char	*sbase;
+	static char	*sbase[1024];
 	char		*line;
 
 	if (fd == -1 || BUFFER_SIZE <= 0 || read(fd, 0, 0))
 	{
-		if (sbase)
-			free(sbase);
-		sbase = NULL;
+		if (sbase[fd])
+			free(sbase[fd]);
+		sbase[fd] = NULL;
 		return (NULL);
 	}
-	sbase = ft_read(fd, sbase);
-	if (!sbase)
+	sbase[fd] = ft_read(fd, sbase[fd]);
+	if (!sbase[fd])
 		return (NULL);
-	line = ft_getline(sbase);
-	sbase = ft_newsbase(sbase);
+	line = ft_getline(sbase[fd]);
+	sbase[fd] = ft_newsbase(sbase[fd]);
 	return (line);
 }
